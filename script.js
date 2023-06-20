@@ -1,24 +1,29 @@
-// function getComputerChoice(computerCount) {
-//   Math.floor(Math.random() *) + 1;
+function getComputerChoice(computerCount) {
+  // Number between 1 and 3
+  computerCount = Math.floor(Math.random() * 3) + 1;
+  let choose = "";
   
-//    computerCount = 0;
-//    chooseRock = "Rock";
-//    choosePaper = "Paper";
-//    chooseScissors = "Scissors";
+  chooseRock = "Rock";
+  choosePaper = "Paper";
+  chooseScissors = "Scissors";
 
-//   if (computerCount == 1) {
-//     return chooseRock;
-//   }
+  //computer to choose a pick
+  if (computerCount == 1) {
+    return chooseRock;
+    
+  }
 
-//   else if (computerCount == 2) {
-//     return choosePaper;
-//   }
+  else if (computerCount == 2) {
+    
+    return choosePaper;
+  }
 
-//   else if (computerCount == 3) {
-//     return chooseScissors;
-//   }
+  else if (computerCount == 3) {
+    
+    return chooseScissors;
+  }
   
-// }
+}
 
 function playerSelection() {
 
@@ -37,4 +42,4 @@ function game() {
 
 }  
 
-// console.log(getComputerChoice());
+console.log(getComputerChoice());
