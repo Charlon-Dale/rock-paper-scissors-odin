@@ -1,7 +1,6 @@
 function getComputerChoice(computerCount) {
   // Number between 1 and 3
   computerCount = Math.floor(Math.random() * 3) + 1;
-  let choose = "";
   
   chooseRock = "Rock";
   choosePaper = "Paper";
