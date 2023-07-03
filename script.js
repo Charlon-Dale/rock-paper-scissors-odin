@@ -21,19 +21,19 @@ function getComputerChoice() {
 
 
 //user will input his/her pick
-function playerSelection(playerInput) {
+function playerSelection() {
   let playerChoice = prompt("What's your pick? Rock, Paper, or Scissors?");
 
   if (playerChoice == 'Rock'){
-    return playerInput = 'Rock';  
+    return 'Rock';  
   }
 
   else if (playerChoice == 'Paper'){
-    return playerInput = 'Paper';
+    return 'Paper';
   }
 
   else if (playerChoice == 'Scissors'){
-    return playerInput = 'Scissors';
+    return 'Scissors';
   }
   
 }
