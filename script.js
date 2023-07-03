@@ -25,24 +25,27 @@ function getComputerChoice(computerCount) {
 }
 //user will will input his/her pick
 function playerSelection(playerInput) {
-  let playerChoice = prompt("What's your pick?");
+  let playerChoice = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  if (playerChoice == 'rock'){
-    return playerInput = 'rock';  
+  if (playerChoice == 'Rock'){
+    return playerInput = 'Rock';  
   }
 
-  else if (playerChoice == 'paper'){
-    return playerInput = 'paper';
+  else if (playerChoice == 'Paper'){
+    return playerInput = 'Paper';
   }
 
-  else if (playerChoice == 'scissors'){
-    return playerInput = 'scissors';
+  else if (playerChoice == 'Scissors'){
+    return playerInput = 'Scissors';
   }
   
 }
 
 function playRound(playerSelection, computerSelection) {
-    // your code here!
+    result = " ";
+    if (playerSelection == computerSelection) {
+      return result = "Draw";
+    }
   }
    
   // const playerSelection = "rock";
@@ -56,3 +59,4 @@ function game() {
 
 console.log("Player choice is "+ playerSelection());
 console.log(getComputerChoice());
+console.log(playRound());
