@@ -24,9 +24,20 @@ function getComputerChoice(computerCount) {
   
 }
 //user will will input his/her pick
-function playerSelection() {
-  let playerInput = prompt("What's your pick?");
+function playerSelection(playerInput) {
+  let playerChoice = prompt("What's your pick?");
 
+  if (playerChoice == 'rock'){
+    return playerInput = 'rock';  
+  }
+
+  else if (playerChoice == 'paper'){
+    return playerInput = 'paper';
+  }
+
+  else if (playerChoice == 'scissors'){
+    return playerInput = 'scissors';
+  }
   
 }
 
@@ -43,5 +54,5 @@ function game() {
 
 }  
 
-console.log(playerSelection());
+console.log("Player choice is "+ playerSelection());
 console.log(getComputerChoice());
