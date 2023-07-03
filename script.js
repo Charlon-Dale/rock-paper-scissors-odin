@@ -46,6 +46,38 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
       return result = "Draw";
     }
+
+    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+      return result = "You lose, computer wins";
+    }
+    if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+      return result = "You win, computer lose";
+    }
+    
+    if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+      return result = "You win, computer lose";
+    }
+    
+    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+      return result = "Computer Wins";
+    }
+    
+    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+      return result = "Computer Wins";
+    }
+    
+    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+      return result = "Computer Wins";
+    }
+    
+    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+      return result = "Computer Wins";
+    }
+    
+    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+      return result = "Computer Wins";
+    }
+    
   }
    
   // const playerSelection = "rock";
