@@ -1,29 +1,26 @@
 //computer to choose a pick randomly
-function getComputerChoice(computerCount) {
+function getComputerChoice() {
   // Number between 1 and 3
   computerCount = Math.floor(Math.random() * 3) + 1;
-  
-  chooseRock = "Rock";
-  choosePaper = "Paper";
-  chooseScissors = "Scissors";
 
-  if (computerCount == 1) {
-    return chooseRock;
+  if (computerCount === 1) {
+    return 'Rock';
+ 
+  }
+  else if (computerCount === 2) {
     
+    return 'Paper';
   }
 
-  else if (computerCount == 2) {
+  else if (computerCount === 3) {
     
-    return choosePaper;
-  }
-
-  else if (computerCount == 3) {
-    
-    return chooseScissors;
+    return 'Scissors';
   }
   
 }
-//user will will input his/her pick
+
+
+//user will input his/her pick
 function playerSelection(playerInput) {
   let playerChoice = prompt("What's your pick? Rock, Paper, or Scissors?");
 
@@ -41,48 +38,37 @@ function playerSelection(playerInput) {
   
 }
 
-function playRound(playerSelection, computerSelection) {
-    result = " ";
-    if (playerSelection == computerSelection) {
-      return result = "Draw";
+function playRound(playerSelection, getComputerChoice) {
+    let result = "";
+    if (playerSelection === getComputerChoice){
+      result = "Draw"; 
     }
-
-    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+    if (playerSelection === "Rock" && getComputerChoice === "Paper") {
       return result = "You lose, computer wins";
     }
-    if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+
+    if (playerSelection === "Rock" && getComputerChoice === "Scissors") {
       return result = "You win, computer lose";
     }
     
-    if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+    if (playerSelection === "Paper" && getComputerChoice === "Rock") {
       return result = "You win, computer lose";
     }
     
-    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-      return result = "Computer Wins";
+    if (playerSelection === "Paper" && getComputerChoice === "Scissors") {
+      return result = "You lose, computer wins";
     }
     
-    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-      return result = "Computer Wins";
+    if (playerSelection === "Scissors" && getComputerChoice === "Paper") {
+      return result = "You win, computer lose";
     }
     
-    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-      return result = "Computer Wins";
-    }
-    
-    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-      return result = "Computer Wins";
-    }
-    
-    if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-      return result = "Computer Wins";
+    if (playerSelection === "Scissors" && getComputerChoice === "Rock") {
+      return result = "You lose, computer wins";
     }
     
   }
-   
-  // const playerSelection = "rock";
-  // const computerSelection = getComputerChoice();
-  // console.log(playRound(playerSelection, computerSelection));
+  
 
   
 function game() {
