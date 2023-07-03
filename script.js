@@ -1,3 +1,4 @@
+//computer to choose a pick randomly
 function getComputerChoice(computerCount) {
   // Number between 1 and 3
   computerCount = Math.floor(Math.random() * 3) + 1;
@@ -6,7 +7,6 @@ function getComputerChoice(computerCount) {
   choosePaper = "Paper";
   chooseScissors = "Scissors";
 
-  //computer to choose a pick
   if (computerCount == 1) {
     return chooseRock;
     
@@ -23,9 +23,11 @@ function getComputerChoice(computerCount) {
   }
   
 }
-
+//user will will input his/her pick
 function playerSelection() {
+  let playerInput = prompt("What's your pick?");
 
+  
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -41,4 +43,5 @@ function game() {
 
 }  
 
+console.log(playerSelection());
 console.log(getComputerChoice());
