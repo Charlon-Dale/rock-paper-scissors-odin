@@ -28,7 +28,7 @@ function playerChoice() {
     return 'Rock';  
   }
 
-  else if (playerPrompt === 'Paper' || playerPrompt === 'pAper' || playerPrompt === 'paPer' || playerPrompt === 'papEr' || playerPrompt === 'papeR' || playerPrompt === 'PAPER'){
+  else if (playerPrompt ===  'paper' || playerPrompt === 'Paper' || playerPrompt === 'pAper' || playerPrompt === 'paPer' || playerPrompt === 'papEr' || playerPrompt === 'papeR' || playerPrompt === 'PAPER'|| playerPrompt ===  'PAPEr' || playerPrompt ===  'PAPeR' || playerPrompt ===  'PApER' || playerPrompt ===  'PaPER' || playerPrompt ===  'pAPER' || playerPrompt ===  'PAper' || playerPrompt ===  'pAPer' || playerPrompt ===  'paPEr' || playerPrompt ===  'papER' || playerPrompt ===  'PapeR' || playerPrompt ===  'pApEr'|| playerPrompt ===  'PaPeR'|| playerPrompt ===  'pAPER'|| playerPrompt ===  'PaPER'|| playerPrompt ===  'PApER'|| playerPrompt ===  'PAPeR'|| playerPrompt ===  'PAPEr'){
     return 'Paper';
   }
 
