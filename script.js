@@ -24,18 +24,23 @@ function computerChoice() {
 function playerChoice() {
   let playerPrompt = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  if (playerPrompt === 'Rock' || playerPrompt ===  'rOck' || playerPrompt ===  'roCk' || playerPrompt ===  'rocK' || playerPrompt ===  'roCK' || playerPrompt ===  'rOCK'|| playerPrompt ===  'ROCK' || playerPrompt ===  'RoCK' || playerPrompt ===  'ROcK' || playerPrompt ===  'ROCk'|| playerPrompt ===  'roCK'|| playerPrompt ===  'ROck'|| playerPrompt ===  'RocK'|| playerPrompt ===  'rOCk'|| playerPrompt ===  'RoCk' || playerPrompt ===  'rOcK'|| playerPrompt ===  'rock'){
-    return 'Rock';  
+  //to Match the result case-insensitive
+  const rockResult = /rock/gi;
+  const paperResult = /paper/gi;
+  const scissorResult = /scissors/gi;
+  
+  
+  if(playerPrompt.match(rockResult)) {
+    return 'Rock';
   }
 
-  else if (playerPrompt ===  'paper' || playerPrompt === 'Paper' || playerPrompt === 'pAper' || playerPrompt === 'paPer' || playerPrompt === 'papEr' || playerPrompt === 'papeR' || playerPrompt === 'PAPER'|| playerPrompt ===  'PAPEr' || playerPrompt ===  'PAPeR' || playerPrompt ===  'PApER' || playerPrompt ===  'PaPER' || playerPrompt ===  'pAPER' || playerPrompt ===  'PAper' || playerPrompt ===  'pAPer' || playerPrompt ===  'paPEr' || playerPrompt ===  'papER' || playerPrompt ===  'PapeR' || playerPrompt ===  'pApEr'|| playerPrompt ===  'PaPeR'|| playerPrompt ===  'pAPER'|| playerPrompt ===  'PaPER'|| playerPrompt ===  'PApER'|| playerPrompt ===  'PAPeR'|| playerPrompt ===  'PAPEr'){
+  else if(playerPrompt.match(paperResult)) {
     return 'Paper';
   }
 
-  else if (playerPrompt === 'Scissors' || playerPrompt === 'sCissors' || playerPrompt === 'scIssors' || playerPrompt === 'sciSsors' || playerPrompt === 'scisSors' || playerPrompt === 'scissOrs' || playerPrompt === 'scissoRs' || playerPrompt === 'scissorS' || playerPrompt === 'SCISSORS'){
+  else if(playerPrompt.match(scissorResult)) {
     return 'Scissors';
-  }
-  
+  }  
 }
 
 
