@@ -28,7 +28,7 @@ function playerChoice() {
     return 'Rock';  
   }
 
-  else if (playerPrompt === 'Paper'){
+  else if (playerPrompt === 'Paper' || playerPrompt === 'pAper' || playerPrompt === 'paPer' || playerPrompt === 'papEr' || playerPrompt === 'papeR' || playerPrompt === 'PAPER'){
     return 'Paper';
   }
 
