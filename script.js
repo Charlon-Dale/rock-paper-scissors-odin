@@ -32,7 +32,7 @@ function playerChoice() {
     return 'Paper';
   }
 
-  else if (playerPrompt === 'Scissors'){
+  else if (playerPrompt === 'Scissors' || playerPrompt === 'sCissors' || playerPrompt === 'scIssors' || playerPrompt === 'sciSsors' || playerPrompt === 'scisSors' || playerPrompt === 'scissOrs' || playerPrompt === 'scissoRs' || playerPrompt === 'scissorS' || playerPrompt === 'SCISSORS'){
     return 'Scissors';
   }
   
