@@ -24,7 +24,7 @@ function computerChoice() {
 function playerChoice() {
   let playerPrompt = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  if (playerPrompt === 'Rock' || playerPrompt ===  'rOck' || playerPrompt ===  'roCk' || playerPrompt ===  'rocK' || playerPrompt ===  'ROCK'){
+  if (playerPrompt === 'Rock' || playerPrompt ===  'rOck' || playerPrompt ===  'roCk' || playerPrompt ===  'rocK' || playerPrompt ===  'roCK' || playerPrompt ===  'rOCK'|| playerPrompt ===  'ROCK' || playerPrompt ===  'RoCK' || playerPrompt ===  'ROcK' || playerPrompt ===  'ROCk'|| playerPrompt ===  'roCK'|| playerPrompt ===  'ROck'|| playerPrompt ===  'RocK'|| playerPrompt ===  'rOCk'|| playerPrompt ===  'RoCk' || playerPrompt ===  'rOcK'|| playerPrompt ===  'rock'){
     return 'Rock';  
   }
 
