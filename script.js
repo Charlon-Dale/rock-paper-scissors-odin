@@ -24,7 +24,7 @@ function computerChoice() {
 function playerChoice() {
   let playerPrompt = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  if (playerPrompt === 'Rock' || 'rOck' || 'roCk' || 'rocK' || 'ROCK'){
+  if (playerPrompt === 'Rock' || playerPrompt ===  'rOck' || playerPrompt ===  'roCk' || playerPrompt ===  'rocK' || playerPrompt ===  'ROCK'){
     return 'Rock';  
   }
 
@@ -76,6 +76,6 @@ const computerSelection = computerChoice();
 
 function game() {}  
 
-console.log("Computer's choice: " + playerSelection);
+console.log("Player's choice: " + playerSelection);
 console.log("Computer's choice: " + computerSelection);
 console.log(playRound(playerSelection, computerSelection));
