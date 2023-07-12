@@ -24,7 +24,7 @@ function computerChoice() {
 function playerChoice() {
   let playerPrompt = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  if (playerPrompt === 'Rock'){
+  if (playerPrompt === 'Rock' || 'rOck' || 'roCk' || 'rocK' || 'ROCK'){
     return 'Rock';  
   }
 
@@ -69,10 +69,10 @@ function playRound(playerSelection, computerSelection) {
       return result = "You lose, computer wins";
     }
     
-  }
+}
 
-  const playerSelection = playerChoice();
-  const computerSelection = computerChoice();
+const playerSelection = playerChoice();
+const computerSelection = computerChoice();
 
 function game() {}  
 
