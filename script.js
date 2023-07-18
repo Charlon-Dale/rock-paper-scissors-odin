@@ -47,10 +47,6 @@ function playerChoice() {
   else if(playerPrompt.match(scissorResult)) {
     return 'Scissors';
   }  
-
-  else {
-    return 'No pick found. Try again.';
-  }
 }
 
 
@@ -60,32 +56,28 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection){
       return "Draw"; 
     }
-    else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+    if (playerSelection === 'Rock' && computerSelection === 'Paper') {
       return "You lose, computer wins";
     }
 
-    else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+    if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
       return "You win, computer lose";
     }
     
-    else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+    if (playerSelection === 'Paper' && computerSelection === 'Rock') {
       return "You win, computer lose";
     }
     
-    else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+    if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
       return "You lose, computer wins";
     }
     
-    else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+    if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
       return "You win, computer lose";
     }
     
-    else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+    if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
       return "You lose, computer wins";
-    }
-
-    else {
-      return "Game forfeits."
     }
     
 }
