@@ -1,6 +1,8 @@
 let playerSelection = playerChoice();
 let computerSelection = computerChoice();
 
+let playerScore = 0;
+let computerScore = 0;
 
 //computer to choose a pick randomly
 function computerChoice() {
@@ -52,37 +54,35 @@ function playerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
-
-  let playerScore = 0;
-  let computerScore = 0;
     
   
-    if (playerSelection === computerSelection)
+  if (playerSelection === computerSelection)
             {
               return "Draw"; 
             }
-    else if (playerSelection === 'Rock' && computerSelection === 'Paper'||
-             playerSelection === 'Paper' && computerSelection === 'Scissors'||
-             playerSelection === 'Scissors' && computerSelection === 'Rock') 
+  else if (playerSelection === 'Rock' && computerSelection === 'Paper'||
+            playerSelection === 'Paper' && computerSelection === 'Scissors'||
+            playerSelection === 'Scissors' && computerSelection === 'Rock') 
             
             {
+              ++playerScore;
               return "You lose, computer wins";
-              playerScore++;
+   
             }
 
-    else if (playerSelection === 'Rock' && computerSelection === 'Scissors'||
-             playerSelection === 'Paper' && computerSelection === 'Rock'||
-             playerSelection === 'Scissors' && computerSelection === 'Paper') 
+  else if (playerSelection === 'Rock' && computerSelection === 'Scissors'||
+            playerSelection === 'Paper' && computerSelection === 'Rock'||
+            playerSelection === 'Scissors' && computerSelection === 'Paper') 
              
             {
+              ++computerScore;
               return "You win, computer lose";
-              computerScore++;
             }
   
-    else 
-            {
-              return "Game forfeits."
-            }
+  else 
+          {
+            return "Game forfeits."
+          }
 }
 
 
@@ -97,3 +97,5 @@ console.log("Best of 5")
 console.log("Player's choice: " + playerSelection);
 console.log("Computer's choice: " + computerSelection);
 console.log(playRound(playerSelection, computerSelection));
+console.log("Computer Score: " + playerScore);
+console.log("Player Score: " + computerScore);
