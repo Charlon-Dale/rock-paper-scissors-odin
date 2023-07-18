@@ -1,6 +1,3 @@
-let playerScore = 0;
-let computerScore = 0;
-
 let playerSelection = playerChoice();
 let computerSelection = computerChoice();
 
@@ -55,38 +52,37 @@ function playerChoice() {
 
 
 function playRound(playerSelection, computerSelection) {
+
+  let playerScore = 0;
+  let computerScore = 0;
     
   
-    if (playerSelection === computerSelection){
-      return "Draw"; 
-    }
-    else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-      return "You lose, computer wins";
-    }
+    if (playerSelection === computerSelection)
+            {
+              return "Draw"; 
+            }
+    else if (playerSelection === 'Rock' && computerSelection === 'Paper'||
+             playerSelection === 'Paper' && computerSelection === 'Scissors'||
+             playerSelection === 'Scissors' && computerSelection === 'Rock') 
+            
+            {
+              return "You lose, computer wins";
+              playerScore++;
+            }
 
-    else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-      return "You win, computer lose";
-    }
-    
-    else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-      return "You win, computer lose";
-    }
-    
-    else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-      return "You lose, computer wins";
-    }
-    
-    else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-      return "You win, computer lose";
-    }
-    
-    else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-      return "You lose, computer wins";
-    }
-    
-    else {
-      return "Game forfeits."
-    }
+    else if (playerSelection === 'Rock' && computerSelection === 'Scissors'||
+             playerSelection === 'Paper' && computerSelection === 'Rock'||
+             playerSelection === 'Scissors' && computerSelection === 'Paper') 
+             
+            {
+              return "You win, computer lose";
+              computerScore++;
+            }
+  
+    else 
+            {
+              return "Game forfeits."
+            }
 }
 
 
