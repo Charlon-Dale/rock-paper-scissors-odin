@@ -28,12 +28,16 @@ function computerChoice() {
 //user will input his/her pick
 function playerChoice() {
   let playerPrompt = prompt("What's your pick? Rock, Paper, or Scissors?");
+  
+  while (playerPrompt == null) {
+    playerPrompt = prompt("Please pick from Rock, Paper, or Scissors");
+  }
 
   //for case-insensitive 
   const rockResult = /rock/gi;
   const paperResult = /paper/gi;
   const scissorResult = /scissors/gi;
-  
+  const blankPick = "";
   
   if(playerPrompt.match(rockResult)) {
     return 'Rock';
@@ -46,10 +50,7 @@ function playerChoice() {
   else if(playerPrompt.match(scissorResult)) {
     return 'Scissors';
   }  
-
-  else {
-    return 'Pick not found. Try again.';
-  }
+ 
 }
 
 
@@ -61,24 +62,22 @@ function playRound(playerSelection, computerSelection) {
               return "Draw"; 
             }
   else if (playerSelection === 'Rock' && computerSelection === 'Paper'||
-            playerSelection === 'Paper' && computerSelection === 'Scissors'||
-            playerSelection === 'Scissors' && computerSelection === 'Rock') 
+           playerSelection === 'Paper' && computerSelection === 'Scissors'||
+           playerSelection === 'Scissors' && computerSelection === 'Rock') 
             
             {
               ++playerScore;
               return "You lose, computer wins";
    
             }
-
   else if (playerSelection === 'Rock' && computerSelection === 'Scissors'||
-            playerSelection === 'Paper' && computerSelection === 'Rock'||
-            playerSelection === 'Scissors' && computerSelection === 'Paper') 
+           playerSelection === 'Paper' && computerSelection === 'Rock'||
+           playerSelection === 'Scissors' && computerSelection === 'Paper') 
              
             {
               ++computerScore;
               return "You win, computer lose";
             }
-  
   else 
           {
             return "Game forfeits."
@@ -86,13 +85,15 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-function game() {
-
-
-
-
-
-}  
+// function game() {
+//   computerScore;
+//   playerScore;
+  
+//   for (let index = 0; index < 5; index++) {
+//    return playRound(playerSelection, computerSelection);
+//   }
+// }
+  
 console.log("Best of 5")
 console.log("Player's choice: " + playerSelection);
 console.log("Computer's choice: " + computerSelection);
