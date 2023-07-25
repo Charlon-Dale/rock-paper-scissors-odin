@@ -37,7 +37,6 @@ function playerChoice() {
   const rockResult = /rock/gi;
   const paperResult = /paper/gi;
   const scissorResult = /scissors/gi;
-  const blankPick = "";
   
   if(playerPrompt.match(rockResult)) {
     return 'Rock';
@@ -56,47 +55,52 @@ function playerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     
-  
+  let playerPick = playerSelection;
+  let computerPick = computerSelection;
+
   if (playerSelection === computerSelection)
             {
-              return "Draw"; 
+              console.log("Player's choice: " + playerPick);
+              console.log("Computer's choice: " + computerPick);
+              console.log("Computer Score: " + playerScore);
+              console.log("Player Score: " + computerScore);
+              console.log("Draw"); 
             }
-  else if (playerSelection === 'Rock' && computerSelection === 'Paper'||
-           playerSelection === 'Paper' && computerSelection === 'Scissors'||
-           playerSelection === 'Scissors' && computerSelection === 'Rock') 
+
+  else if (playerPick === 'Rock' && computerPick === 'Paper'||
+           playerPick === 'Paper' && computerPick === 'Scissors'||
+           playerPick === 'Scissors' && computerPick === 'Rock') 
             
             {
               ++playerScore;
-              return "You lose, computer wins";
-   
+              console.log("Player's choice: " + playerPick);
+              console.log("Computer's choice: " + computerPick);
+              console.log("Computer Score: " + playerScore);
+              console.log("Player Score: " + computerScore);
+              console.log("You, win, computer lose");
+              
             }
-  else if (playerSelection === 'Rock' && computerSelection === 'Scissors'||
-           playerSelection === 'Paper' && computerSelection === 'Rock'||
-           playerSelection === 'Scissors' && computerSelection === 'Paper') 
-             
+
+  else 
             {
               ++computerScore;
-              return "You win, computer lose";
+              console.log("Player's choice: " + playerPick);
+              console.log("Computer's choice: " + computerPick);
+              console.log("Computer Score: " + playerScore);
+              console.log("Player Score: " + computerScore);
+              console.log("You lose, computer win");
+ 
             }
-  else 
-          {
-            return "Game forfeits."
-          }
+}
+ 
+
+function game() {
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
 }
 
+game();
 
-// function game() {
-//   computerScore;
-//   playerScore;
-  
-//   for (let index = 0; index < 5; index++) {
-//    return playRound(playerSelection, computerSelection);
-//   }
-// }
-  
-console.log("Best of 5")
-console.log("Player's choice: " + playerSelection);
-console.log("Computer's choice: " + computerSelection);
-console.log(playRound(playerSelection, computerSelection));
-console.log("Computer Score: " + playerScore);
-console.log("Player Score: " + computerScore);
