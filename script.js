@@ -52,55 +52,46 @@ function playerChoice() {
  
 }
 
+function gameRound(round) {
+    const showWinner = playRound(playerSelection, computerSelection);  
+    roundOverview(playerSelection, computerSelection, showWinner, round);
+}
+
 
 function playRound(playerSelection, computerSelection) {
     
-  let playerPick = playerSelection;
-  let computerPick = computerSelection;
-
   if (playerSelection === computerSelection)
             {
-              console.log("Player's choice: " + playerPick);
-              console.log("Computer's choice: " + computerPick);
-              console.log("Computer Score: " + playerScore);
-              console.log("Player Score: " + computerScore);
-              console.log("Draw"); 
+              return "Draw";
             }
 
-  else if (playerPick === 'Rock' && computerPick === 'Paper'||
-           playerPick === 'Paper' && computerPick === 'Scissors'||
-           playerPick === 'Scissors' && computerPick === 'Rock') 
+  else if (playerSelection === 'Rock' && computerSelection === 'Paper'||
+           playerSelection === 'Paper' && computerSelection === 'Scissors'||
+           playerSelection === 'Scissors' && computerSelection === 'Rock') 
             
             {
               ++playerScore;
-              console.log("Player's choice: " + playerPick);
-              console.log("Computer's choice: " + computerPick);
-              console.log("Computer Score: " + playerScore);
-              console.log("Player Score: " + computerScore);
-              console.log("You, win, computer lose");
-              
+              return "Player";  
             }
 
   else 
             {
               ++computerScore;
-              console.log("Player's choice: " + playerPick);
-              console.log("Computer's choice: " + computerPick);
-              console.log("Computer Score: " + playerScore);
-              console.log("Player Score: " + computerScore);
-              console.log("You lose, computer win");
- 
+              return "Computer";
             }
 }
- 
 
-function game() {
-  playRound(playerSelection, computerSelection);
-  playRound(playerSelection, computerSelection);
-  playRound(playerSelection, computerSelection);
-  playRound(playerSelection, computerSelection);
-  playRound(playerSelection, computerSelection);
+function roundOverview(playerChoice, computerChoice, showWinner, round) {
+  console.log("Round:", round);
+  console.log("Player Chose:", playerChoice);
+  console.log("Computer Chose:", computerChoice);
+  console.log(showWinner, "Won the Round");
+  console.log("-------------------------------");
 }
 
-game();
+function game() {
+  for (let roundNum = 1; roundNum <= 5; roundNum++) {
+    gameRound(roundNum);
+  }
+}
 
