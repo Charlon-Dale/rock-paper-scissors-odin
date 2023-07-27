@@ -1,6 +1,3 @@
-let playerSelection = playerChoice();
-let computerSelection = computerChoice();
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -52,9 +49,18 @@ function playerChoice() {
  
 }
 
-function gameRound(round) {
+function game() {
+  for (let roundNum = 1; roundNum <= 5; roundNum++) {
+    gameRound(roundNum);
+
+  }
+}
+
+function gameRound(roundNum) {
+    const playerSelection = playerChoice();
+    const computerSelection = computerChoice();
     const showWinner = playRound(playerSelection, computerSelection);  
-    roundOverview(playerSelection, computerSelection, showWinner, round);
+    roundOverview(playerSelection, computerSelection, showWinner, roundNum);
 }
 
 
@@ -81,17 +87,14 @@ function playRound(playerSelection, computerSelection) {
             }
 }
 
-function roundOverview(playerChoice, computerChoice, showWinner, round) {
-  console.log("Round:", round);
+function roundOverview(playerChoice, computerChoice, showWinner, roundNum) {
+  console.log("Round:", roundNum);
   console.log("Player Chose:", playerChoice);
   console.log("Computer Chose:", computerChoice);
   console.log(showWinner, "Won the Round");
   console.log("-------------------------------");
 }
 
-function game() {
-  for (let roundNum = 1; roundNum <= 5; roundNum++) {
-    gameRound(roundNum);
-  }
-}
 
+
+console.log(game());
