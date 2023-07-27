@@ -54,6 +54,7 @@ function game() {
     gameRound(roundNum);
 
   }
+    gameWinner(playerScore, computerScore);
 }
 
 function gameRound(roundNum) {
@@ -61,6 +62,7 @@ function gameRound(roundNum) {
     const computerSelection = computerChoice();
     const showWinner = playRound(playerSelection, computerSelection);  
     roundOverview(playerSelection, computerSelection, showWinner, roundNum);
+
 }
 
 
@@ -87,6 +89,20 @@ function playRound(playerSelection, computerSelection) {
             }
 }
 
+function gameWinner(playerScore, computerScore) {
+  if(playerScore == computerScore) {
+    console.log("Game is Draw")
+  }
+
+  else if(playerScore >= computerScore) {
+    console.log("Player wins, better luck next time computer");
+
+  }
+  else {
+    console.log("Computer wins, better luck next time player");
+  }
+}
+
 function roundOverview(playerChoice, computerChoice, showWinner, roundNum) {
   console.log("Round:", roundNum);
   console.log("Player Chose:", playerChoice);
@@ -94,6 +110,7 @@ function roundOverview(playerChoice, computerChoice, showWinner, roundNum) {
   console.log(showWinner, "Won the Round");
   console.log("-------------------------------");
 }
+
 
 game();
 
