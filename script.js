@@ -95,6 +95,5 @@ function roundOverview(playerChoice, computerChoice, showWinner, roundNum) {
   console.log("-------------------------------");
 }
 
+game();
 
-
-console.log(game());
