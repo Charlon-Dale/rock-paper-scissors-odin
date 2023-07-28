@@ -1,15 +1,12 @@
 let playerScore = 0;
 let computerScore = 0;
 
-  //to make prompt case-insensitive 
+  //to make playerInput case-insensitive 
   const rockResult = /rock/gi;
   const paperResult = /paper/gi;
   const scissorResult = /scissors/gi;
 
-//computer to choose a pick randomly
-function computerChoice() {
-
-  // generate random number between 1 and 3
+function getComputerChoice() {
   randomPick = Math.floor(Math.random() * 3) + 1;
 
   if (randomPick === 1) {
@@ -28,28 +25,27 @@ function computerChoice() {
   
 }
 
-//user will input a pick
-function playerChoice() {
+function getPlayerChoice() {
   const noInput = null;
   const inputError = false;
 
-  let playerPrompt = prompt("What's your pick? Rock, Paper, or Scissors?");
+  let playerInput = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  while (playerPrompt == noInput) {
-    playerPrompt = prompt("Please pick from Rock, Paper, or Scissors");
+  while (playerInput == noInput) {
+    playerInput = prompt("Please pick from Rock, Paper, or Scissors");
   }
 
-  let check = validateResult(playerPrompt);
+  let check = validateResult(playerInput);
   while (check == inputError) {
-    playerPrompt = prompt("Try Again");
+    playerInput = prompt("Try Again");
     
-  while (playerPrompt == noInput) {
-      playerPrompt = prompt("Please pick from Rock, Paper, or Scissors");
+  while (playerInput == noInput) {
+      playerInput = prompt("Please pick from Rock, Paper, or Scissors");
     }
-    check = validateResult(playerPrompt);
+    check = validateResult(playerInput);
   }
 
-  return playerPrompt;
+  return playerInput;
 
 }
 
@@ -58,25 +54,24 @@ function validateResult(rockResult, paperResult, scissorResult) {
 }
 
 //to make a 5-round game
-function game() {
+function playGame() {
   for (let roundNum = 1; roundNum <= 5; roundNum++) {
-    gameRound(roundNum);
+    playRoundGame(roundNum);
 
   }
-    gameWinner(playerScore, computerScore);
+    showGameWinner(playerScore, computerScore);
 }
 
 
-function gameRound(roundNum) {
-    const playerSelection = playerChoice();
-    const computerSelection = computerChoice();
-    const showRoundWinner = playRound(playerSelection, computerSelection);  
-    roundOverview(playerSelection, computerSelection, showRoundWinner, roundNum);
+function playRoundGame(roundNum) {
+    const playerSelection = getPlayerChoice();
+    const computerSelection = getComputerChoice();
+    const showRoundWinner = compareChoice(playerSelection, computerSelection);  
+    showRoundOverview(playerSelection, computerSelection, showRoundWinner, roundNum);
 
 }
 
-//compare each results
-function playRound(playerSelection, computerSelection) {
+function compareChoice(playerSelection, computerSelection) {
     
   if (playerSelection === computerSelection)
             {
@@ -89,18 +84,17 @@ function playRound(playerSelection, computerSelection) {
             
             {
               ++playerScore;
-              return "Player";  
+              return "Player won";  
             }
 
   else 
             {
               ++computerScore;
-              return "Computer";
+              return "Computer won";
             }
 }
 
-// compare overall score
-function gameWinner(playerScore, computerScore) {
+function showGameWinner(playerScore, computerScore) {
   if(playerScore == computerScore) {
     console.log("Game is Draw")
   }
@@ -115,14 +109,14 @@ function gameWinner(playerScore, computerScore) {
 }
 
 // to show overview in the console
-function roundOverview(playerChoice, computerChoice, showRoundWinner, roundNum) {
+function showRoundOverview(getPlayerChoice, getComputerChoice, showRoundWinner, roundNum) {
   console.log("Round:", roundNum);
-  console.log("Player Chose:", playerChoice);
-  console.log("Computer Chose:", computerChoice);
-  console.log(showRoundWinner, "Won the Round");
+  console.log("Player Chose:", getPlayerChoice);
+  console.log("Computer Chose:", getComputerChoice);
+  console.log(showRoundWinner);
   console.log("-------------------------------");
 }
 
 
-game();
+playGame();
 
