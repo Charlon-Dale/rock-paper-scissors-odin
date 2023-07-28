@@ -1,6 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
 
+  //for case-insensitive 
+  const rockResult = /rock/gi;
+  const paperResult = /paper/gi;
+  const scissorResult = /scissors/gi;
+
 //computer to choose a pick randomly
 function computerChoice() {
   // generate number between 1 and 3
@@ -25,28 +30,37 @@ function computerChoice() {
 //user will input his/her pick
 function playerChoice() {
   let playerPrompt = prompt("What's your pick? Rock, Paper, or Scissors?");
-  
   while (playerPrompt == null) {
     playerPrompt = prompt("Please pick from Rock, Paper, or Scissors");
   }
-
-  //for case-insensitive 
-  const rockResult = /rock/gi;
-  const paperResult = /paper/gi;
-  const scissorResult = /scissors/gi;
-  
-  if(playerPrompt.match(rockResult)) {
-    return 'Rock';
+  let check = validateResult(playerPrompt);
+  while (check == false) {
+    playerPrompt = prompt("Try Again");
+    
+  while (playerPrompt == null) {
+      playerPrompt = prompt("Please pick from Rock, Paper, or Scissors");
+    }
+    check = validateResult(playerPrompt);
   }
 
-  else if(playerPrompt.match(paperResult)) {
-    return 'Paper';
-  }
+  return playerPrompt;
+  // if(playerPrompt.match(rockResult)) {
+  //   return "Rock";
+  // }
 
-  else if(playerPrompt.match(scissorResult)) {
-    return 'Scissors';
-  }  
+  // else if(playerPrompt.match(paperResult)) {
+  //   return 'Paper';
+  // }
+
+  // else if(playerPrompt.match(scissorResult)) {
+  //   return 'Scissors';
+  // }  
  
+ 
+}
+
+function validateResult(rockResult, paperResult, scissorResult) {
+  return rockResult, paperResult, scissorResult;
 }
 
 function game() {
