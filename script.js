@@ -13,14 +13,14 @@ let getComputerChoice = () => {
 
   let randomPick = Math.floor(Math.random() * 3) + 1;
 
-  if (randomPick == 1) {
+  if (randomPick === 1) {
     return computerPicksRock;
   }
-  else if (randomPick == 2) {
+  else if (randomPick === 2) {
     return computerPickspaper;
   }
 
-  else if (randomPick == 3) {
+  else if (randomPick === 3) {
     return computerPicksScissors;
   }
   
@@ -32,15 +32,17 @@ let getPlayerChoice = () => {
 
   let playerInput = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  while (playerInput == noInput) {
-    playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
-  }
+  // while (playerInput === noInput) {
+  //   playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
+  // }
+
+ playerInput === noInput ? playerInput = prompt("Please pick from Rock, Paper, or Scissors.") : playerInput;
 
   let checkInput = validateResult(playerInput);
-  while (checkInput == inputError) {
+  while (checkInput === inputError) {
     playerInput = prompt("Try Again.");
     
-  while (playerInput == noInput) {
+  while (playerInput === noInput) {
     playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
   }
     checkInput = validateResult(playerInput);
