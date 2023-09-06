@@ -6,7 +6,7 @@ const rockResult = /rock/gi;
 const paperResult = /paper/gi;
 const scissorResult = /scissors/gi;
  
-function getComputerChoice() {
+let getComputerChoice = () => {
   const computerPicksRock = 'Rock';
   const computerPickspaper= 'Paper';
   const computerPicksScissors= 'Scissors';
@@ -26,7 +26,7 @@ function getComputerChoice() {
   
 }
 
-function getPlayerChoice() {
+let getPlayerChoice = () => {
   const noInput = null;
   const inputError = false;
 
@@ -50,12 +50,12 @@ function getPlayerChoice() {
 
 }
 
-function validateResult(rockResult, paperResult, scissorResult) {
+let validateResult = (rockResult, paperResult, scissorResult) => {
   return rockResult, paperResult, scissorResult;
 }
 
 
-function playGame() {
+let playGame = () => {
   for (let roundNum = 1; roundNum <= 5; roundNum++) {
     playRoundGame(roundNum);
 
@@ -64,14 +64,14 @@ function playGame() {
 }
 
 
-function playRoundGame(roundNum) {
+let playRoundGame = (roundNum) => {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
   const showRoundWinner = compareChoice(playerSelection, computerSelection);  
   showRoundOverview(playerSelection, computerSelection, showRoundWinner, roundNum);
 }
 
-function compareChoice(playerSelection, computerSelection) {
+let compareChoice = (playerSelection, computerSelection) => {
   const gameIsDraw = 'Draw';
   const playerWinsRound = 'Player win';
   const computerWinsRound = 'Computer win';
@@ -97,7 +97,8 @@ function compareChoice(playerSelection, computerSelection) {
   }
 }
 
-function showGameWinner(playerScore, computerScore) {
+const showGameWinner = (playerScore, computerScore) => {
+  
   if(playerScore == computerScore) {
     console.log("Game is Draw");
   }
@@ -112,7 +113,7 @@ function showGameWinner(playerScore, computerScore) {
 }
 
 // to show overview
-function showRoundOverview(getPlayerChoice, getComputerChoice, showRoundWinner, roundNum) {
+const showRoundOverview = (getPlayerChoice, getComputerChoice, showRoundWinner, roundNum) => {
   console.log("Round:", roundNum);
   console.log("Player Chose:", getPlayerChoice);
   console.log("Computer Chose:", getComputerChoice);
