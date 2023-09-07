@@ -2,9 +2,9 @@ let playerScore = 0;
 let computerScore = 0;
 
 //to make playerInput case-insensitive 
-const rockResult = "rock";
-const paperResult = "paper";
-const scissorResult = "scissors";
+const rockResult = /rock/gi;
+const paperResult = /paper/gi;
+const scissorResult = /scissors/gi;
 
 function getComputerChoice() {
   const computerPicksRock = 'Rock';
