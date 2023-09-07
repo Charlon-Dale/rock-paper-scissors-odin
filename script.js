@@ -2,14 +2,14 @@ let playerScore = 0;
 let computerScore = 0;
 
 //to make playerInput case-insensitive 
-const rockResult = "rock";
-const paperResult = "paper";
-const scissorResult = "scissors";
+const rockResult = /rock/gi;
+const paperResult = /paper/gi;
+const scissorResult = /scissors/gi;
 
-let getComputerChoice = () => {
-  const computerPicksRock = 'rock';
-  const computerPickspaper = 'paper';
-  const computerPicksScissors = 'scissors';
+function getComputerChoice() {
+  const computerPicksRock = 'Rock';
+  const computerPickspaper = 'Paper';
+  const computerPicksScissors = 'Scissors';
 
   let randomPick = Math.floor(Math.random() * 3) + 1;
 
@@ -31,22 +31,29 @@ let getPlayerChoice = () => {
 
   let playerInput = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  while (playerInput === noInput) {
+  while (playerInput == noInput) {
     playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
   }
 
-  while (playerInput !== rockResult || playerInput !== paperResult || playerInput !== scissorResult) {
-    playerInput = playerInput.toLowerCase();
-    if (playerInput === rockResult || playerInput === paperResult || playerInput === scissorResult) {
-      break;
-    }
+  let checkInput = validateResult(playerInput);
+  while (checkInput == inputError) {
     playerInput = prompt("Try Again.");
+
+    while (playerInput == noInput) {
+      playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
+    }
+    checkInput = validateResult(playerInput);
   }
   return playerInput;
 
 }
 
-let playGame = () => {
+function validateResult(rockResult, paperResult, scissorResult) {
+  return rockResult, paperResult, scissorResult;
+}
+
+
+function playGame() {
   for (let roundNum = 1; roundNum <= 5; roundNum++) {
     playRoundGame(roundNum);
 
@@ -54,7 +61,8 @@ let playGame = () => {
   showGameWinner(playerScore, computerScore);
 }
 
-let playRoundGame = (roundNum) => {
+
+function playRoundGame(roundNum) {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
   const showRoundWinner = compareChoice(playerSelection, computerSelection);
@@ -84,8 +92,7 @@ let compareChoice = (playerSelection, computerSelection) => {
   }
 }
 
-const showGameWinner = (playerScore, computerScore) => {
-
+function showGameWinner(playerScore, computerScore) {
   if (playerScore == computerScore) {
     console.log("Game is Draw");
   }
