@@ -2,14 +2,14 @@ let playerScore = 0;
 let computerScore = 0;
 
 //to make playerInput case-insensitive 
-const rockResult = /rock/gi;
-const paperResult = /paper/gi;
-const scissorResult = /scissors/gi;
+const rockResult = "rock";
+const paperResult = "paper";
+const scissorResult = "scissors";
 
-function getComputerChoice() {
-  const computerPicksRock = 'Rock';
-  const computerPickspaper = 'Paper';
-  const computerPicksScissors = 'Scissors';
+let getComputerChoice = () => {
+  const computerPicksRock = 'rock';
+  const computerPickspaper = 'paper';
+  const computerPicksScissors = 'scissors';
 
   let randomPick = Math.floor(Math.random() * 3) + 1;
 
@@ -28,25 +28,30 @@ function getComputerChoice() {
 
 let getPlayerChoice = () => {
   const noInput = null;
+  const inputError = false;
 
   let playerInput = prompt("What's your pick? Rock, Paper, or Scissors?");
 
-  while (playerInput == noInput) {
+  while (playerInput === noInput) {
     playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
   }
 
-  let checkInput = validateResult(playerInput);
-  while (checkInput == inputError) {
-    playerInput = prompt("Try Again.");
-
-    while (playerInput == noInput) {
-      playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
+  while (playerInput !== rockResult || playerInput !== paperResult || playerInput !== scissorResult) {
+    playerInput = playerInput.toLowerCase();
+    if (playerInput === rockResult || playerInput === paperResult || playerInput === scissorResult) {
+      break;
     }
-    checkInput = validateResult(playerInput);
+    playerInput = prompt("Try Again.");
   }
+
   return playerInput;
 
 }
+
+let validateResult = (rockResult, paperResult, scissorResult) => {
+  return rockResult, paperResult, scissorResult;
+}
+
 
 function validateResult(rockResult, paperResult, scissorResult) {
   return rockResult, paperResult, scissorResult;
@@ -60,6 +65,7 @@ function playGame() {
   }
   showGameWinner(playerScore, computerScore);
 }
+
 
 
 function playRoundGame(roundNum) {
@@ -79,9 +85,9 @@ let compareChoice = (playerSelection, computerSelection) => {
   }
 
   else if (
-    playerSelection === 'paper' && computerSelection === 'rock' ||
-    playerSelection === 'scissors' && computerSelection === 'paper' ||
-    playerSelection === 'rock' && computerSelection === 'scissors') {
+    playerSelection === 'Paper' && computerSelection === 'Rock' ||
+    playerSelection === 'Scissors' && computerSelection === 'Paper' ||
+    playerSelection === 'Rock' && computerSelection === 'Scissors') {
     ++playerScore;
     return playerWinsRound;
   }
@@ -92,7 +98,8 @@ let compareChoice = (playerSelection, computerSelection) => {
   }
 }
 
-function showGameWinner(playerScore, computerScore) {
+const showGameWinner = (playerScore, computerScore) => {
+
   if (playerScore == computerScore) {
     console.log("Game is Draw");
   }
