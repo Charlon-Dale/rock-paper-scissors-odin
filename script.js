@@ -1,28 +1,22 @@
 let playerScore = 0;
 let computerScore = 0;
 
-//to make player Input case-insensitive 
-const rockResult = "rock";
-const paperResult = "paper";
-const scissorResult = "scissors";
+const choiceOptions = ["rock", "paper", "scissors"];
 
 let getComputerChoice = () => {
-  const computerPicksRock = 'rock';
-  const computerPickspaper = 'paper';
-  const computerPicksScissors = 'scissors';
-
 
   let randomPick = Math.floor(Math.random() * 3) + 1;
 
   if (randomPick === 1) {
-    return computerPicksRock;
+    return choiceOptions[0];
   }
+
   else if (randomPick === 2) {
-    return computerPickspaper;
+    return choiceOptions[1];
   }
 
   else if (randomPick === 3) {
-    return computerPicksScissors;
+    return choiceOptions[2];
   }
 
 }
@@ -36,22 +30,21 @@ let getPlayerChoice = () => {
     playerInput = prompt("Please pick from Rock, Paper, or Scissors.");
   }
 
-  while (playerInput !== rockResult || playerInput !== paperResult || playerInput !== scissorResult) {
+  while (playerInput !== choiceOptions[0] || playerInput !== choiceOptions[1] || playerInput !== choiceOptions[2]) {
+
     playerInput = playerInput.toLowerCase();
-    if (playerInput === rockResult || playerInput === paperResult || playerInput === scissorResult) {
+
+    if (playerInput === choiceOptions[0] || playerInput === choiceOptions[1] || playerInput === choiceOptions[2]) {
       break;
     }
+
     playerInput = prompt("Try Again.");
+
   }
 
   return playerInput;
 
 }
-
-let validateResult = (rockResult, paperResult, scissorResult) => {
-  return rockResult, paperResult, scissorResult;
-}
-
 
 let playGame = () => {
   for (let roundNum = 1; roundNum <= 5; roundNum++) {
@@ -78,9 +71,9 @@ let compareChoice = (playerSelection, computerSelection) => {
   }
 
   else if (
-    playerSelection === 'paper' && computerSelection === 'rock' ||
-    playerSelection === 'scissors' && computerSelection === 'paper' ||
-    playerSelection === 'rock' && computerSelection === 'scissors') {
+    playerSelection === choiceOptions[1] && computerSelection === choiceOptions[0] ||
+    playerSelection === choiceOptions[2] && computerSelection === choiceOptions[1] ||
+    playerSelection === choiceOptions[0] && computerSelection === choiceOptions[2]) {
     ++playerScore;
     return playerWinsRound;
   }
@@ -93,7 +86,7 @@ let compareChoice = (playerSelection, computerSelection) => {
 
 const showGameWinner = (playerScore, computerScore) => {
 
-  if (playerScore == computerScore) {
+  if (playerScore === computerScore) {
     console.log("Game is Draw");
   }
 
