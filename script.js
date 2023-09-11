@@ -5,7 +5,7 @@ const choiceOptions = ["rock", "paper", "scissors"];
 
 let getComputerChoice = () => {
 
-  let randomPick = Math.floor(Math.random() * 3) + 1;
+  let randomPick = Math.floor(Math.random() * choiceOptions.length) + 1;
 
   if (randomPick === 1) {
     return choiceOptions[0];
