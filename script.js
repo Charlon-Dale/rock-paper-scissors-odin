@@ -1,7 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
-//to make playerInput case-insensitive 
+//to make player Input case-insensitive 
 const rockResult = "rock";
 const paperResult = "paper";
 const scissorResult = "scissors";
@@ -10,6 +10,7 @@ let getComputerChoice = () => {
   const computerPicksRock = 'rock';
   const computerPickspaper = 'paper';
   const computerPicksScissors = 'scissors';
+
 
   let randomPick = Math.floor(Math.random() * 3) + 1;
 
@@ -28,7 +29,6 @@ let getComputerChoice = () => {
 
 let getPlayerChoice = () => {
   const noInput = null;
-  const inputError = false;
 
   let playerInput = prompt("What's your pick? Rock, Paper, or Scissors?");
 
@@ -53,12 +53,7 @@ let validateResult = (rockResult, paperResult, scissorResult) => {
 }
 
 
-function validateResult(rockResult, paperResult, scissorResult) {
-  return rockResult, paperResult, scissorResult;
-}
-
-
-function playGame() {
+let playGame = () => {
   for (let roundNum = 1; roundNum <= 5; roundNum++) {
     playRoundGame(roundNum);
 
@@ -66,9 +61,7 @@ function playGame() {
   showGameWinner(playerScore, computerScore);
 }
 
-
-
-function playRoundGame(roundNum) {
+const playRoundGame = (roundNum) => {
   const playerSelection = getPlayerChoice();
   const computerSelection = getComputerChoice();
   const showRoundWinner = compareChoice(playerSelection, computerSelection);
@@ -85,9 +78,9 @@ let compareChoice = (playerSelection, computerSelection) => {
   }
 
   else if (
-    playerSelection === 'Paper' && computerSelection === 'Rock' ||
-    playerSelection === 'Scissors' && computerSelection === 'Paper' ||
-    playerSelection === 'Rock' && computerSelection === 'Scissors') {
+    playerSelection === 'paper' && computerSelection === 'rock' ||
+    playerSelection === 'scissors' && computerSelection === 'paper' ||
+    playerSelection === 'rock' && computerSelection === 'scissors') {
     ++playerScore;
     return playerWinsRound;
   }
@@ -118,9 +111,10 @@ const showRoundOverview = (getPlayerChoice, getComputerChoice, showRoundWinner, 
   console.log("Round:", roundNum);
   console.log("Player Chose:", getPlayerChoice);
   console.log("Computer Chose:", getComputerChoice);
-  console.log("Player Score: " + playerScore, "Computer Score: " + computerScore);
   console.log(showRoundWinner);
   console.log("-------------------------------");
+  console.log("Player Score: " + playerScore, "Computer Score: " + computerScore);
+
 }
 
 
